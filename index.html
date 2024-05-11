@@ -2,13 +2,62 @@
 <html>
 
 <head>
+    <link rel="icon" type="image/png" href="imgs/img128.png">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="main.js" type="module"></script>
- 
+
 </head>
 
 <body>
 
-    <div class="container">Soon here will be interesting content</div>
+    <div class="container">
+        <div class="header">
+            <h2>Chrome extension</h2>
+            <a href="#">
+                <h1>Save a web page content as a Google task</h1>
+            </a>
+        </div>
+        <div class="description">
+            <div class="logo"> <a href="#"> <img src="imgs/img512.png"></a></div>
+            <div class="userGuide"><p>Save as a Google Task:</p>
+                <ul>
+                <li>a web page title as the task's title and the page address as the task's details</li>
+                <li>choose any text elements of the page as the task's title or details. If the text element is a link, the link address is appended to the text.</li>
+            </ul> </div>
+        </div>
+        <div class="policy">
+            <h1>Privacy policy</h1>
+            <div>
+                <p class="important">The extension does not collect any user data. The extension only mediates a
+                    convenient transfer of a web page contents from a user's browser to the user's Google Tasks tool.
+                    The extension does not transmit any data anywhere except the Google Tasks tool.</p>
+                <p>For its function, the extension requires and requests only one Google OAuth 2.0 scope:
+                    <b><i>https://www.googleapis.com/auth/tasks</i></b>.</p>
+                <p>If granted by a user, this scope enable the extension to create, edit, organize, and delete all
+                    user's tasks.</p>
+                    <p>The access token obtained after a user's authentication with the Google Identity is used only for accessing the Google Tasks API.</p>
+                <p>Of the possible Google Tasks API operations, the extension performs two:</p>
+                <ul>
+                    <li>
+                        <p><b>List Tasklists (<i>GET https://tasks.googleapis.com/tasks/v1/users/@me/lists</i>)</b> returning
+                            descriptions of the user's task lists.</p>
+                    </li>
+                    <li>
+                        <p><b>Insert Tasks (<i>POST https://tasks.googleapis.com/tasks/v1/lists/{tasklist}/tasks</i>)</b>
+                            creating a new task in the specified task list.</p>
+                    </li>
+                </ul>
+                <p>The list of a user's tasklists is transformed into options of a <i>SELECT</i> HTML element that is
+                    needed to allow the user to select a target tasklist into which a new task is to be saved.
+                    The tasklist selected in the <i>SELECT</i> element is saved into user's browser <i>localstorage</i>
+                    so that the previously selected tasklist can be automatically selected when the user reuses the
+                    extension.
+
+                </p>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 

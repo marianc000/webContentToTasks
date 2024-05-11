@@ -1,0 +1,47 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color:darkslategray;
+}
+
+.logo img {
+    width: 10em;
+}
+
+a {
+    color: mediumblue;
+    text-decoration: none;
+}
+
+.policy> div {
+    text-align: justify;
+    width: 80%;
+    display: inline-block;
+}
+
+p.important {
+    color: crimson;
+}
+
+.description>div {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.container {
+}
+
+.description {
+    width: 80%;
+    display: inline-block;
+}
+
+.logo {
+    width: 20%;
+}
+
+.userGuide {
+    width: 70%;
+    font-size: 1.5em;
+}

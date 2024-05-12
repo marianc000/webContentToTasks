@@ -1,0 +1,1 @@
+# Privacy policy for Chrome extension Save web page contents as a Google task https://chromewebstore.google.com/detail/web-contents-as-a-google/fnccokfcgcdcahanfjlglbldhhmgbhcm

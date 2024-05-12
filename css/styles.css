@@ -29,8 +29,7 @@ p.important {
     vertical-align: middle;
 }
 
-.container {
-}
+.container {margin-bottom: 2em;}
 
 .description {
     width: 80%;

@@ -45,7 +45,7 @@ p.important {
 }
 
 .userGuide {
-    width: 70%;
+    /* width: 70%; */
     font-size: 1.5em;
     line-height: 1.2em;
 }
@@ -67,6 +67,7 @@ h1,h2,h3,h4 {
     right: 0;
     background-color: white;
     border-bottom: 1px solid gainsboro;
+    padding: 0.3em;
 }
 
 .userGuide>p {
@@ -101,4 +102,7 @@ p.beforeul {
 
 p {
     margin-top: 0;
+}
+.header h1 {
+    margin: 0;
 }

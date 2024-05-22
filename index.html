@@ -12,7 +12,7 @@
 
     <div class="container">
         <div class="header">
-            <h2>Handy Chrome extension</h2>
+          
             <a
                 href="https://chromewebstore.google.com/detail/web-contents-as-a-google/fnccokfcgcdcahanfjlglbldhhmgbhcm">
                 <h1>Web contents as a Google Task</h1>
@@ -33,36 +33,56 @@
         <div class="policy">
             <h2>Privacy policy</h2>
             <div>
-                <p class="important">The extension does not collect any user data. The extension only mediates a
-                    convenient transfer of a web page contents from a user's browser to the user's Google Tasks tool.
-                    The extension does not transmit any data anywhere except the Google Tasks tool.</p>
-                <p>For its function, the extension requires and requests only one Google OAuth 2.0 scope:
-                    <b><i>https://www.googleapis.com/auth/tasks</i></b>.
-                </p>
-                <p>If granted by a user, this scope enable the extension to create, edit, organize, and delete all
-                    user's tasks.</p>
-                <p>The access token obtained after a user's authentication with the Google Identity is used only for
-                    accessing the Google Tasks API.</p>
-                <p>Of the possible Google Tasks API operations, the extension performs two:</p>
+                <h3>Summary</h3>
+                <p>The Chrome extension Web contents as a Google Task, hereafter referred to as the extension, mediates
+                    a convenient transfer of selected contents from a web page opened in a browser to the user's account
+                    in the Google Tasks hosted by Google. The extension does not transmit any data anywhere except the
+                    Google Tasks API. The extension does not intentionally store any data received from the Google
+                    Identity API or Google Task API except for the selected by the user target tasklist id that is saved
+                    into the localstorage of the user’s browser.</p>
+                <h3>Detailed explanation of the use of Google user data</h3>
+                <p class="beforeul">The extension creates tasks using the Google Tasks API. Tasks can be created only in tasklists and
+                    only if the user enables the extension to do it. Thus for its function the extension needs three
+                    values received from the Google API:</p>
                 <ul>
-                    <li>
-                        <p><b>List Tasklists (<i>GET https://tasks.googleapis.com/tasks/v1/users/@me/lists</i>)</b>
-                            returning
-                            descriptions of the user's task lists.</p>
-                    </li>
-                    <li>
-                        <p><b>Insert Tasks (<i>POST
-                                    https://tasks.googleapis.com/tasks/v1/lists/{tasklist}/tasks</i>)</b>
-                            creating a new task in the specified task list.</p>
-                    </li>
+                    <li>access token</li>
+                    <li>a list of existing taskslists in the user’s Google Tasks</li>
+                    <li>an address of the just created task</li>
                 </ul>
-                <p>The list of a user's tasklists is transformed into options of a <i>SELECT</i> HTML element that is
-                    needed to allow the user to select a target tasklist into which a new task is to be saved.
-                    The tasklist selected in the <i>SELECT</i> element is saved into user's browser <i>localstorage</i>
-                    so that the previously selected tasklist can be automatically selected when the user reuses the
-                    extension.
-
+                <h4>Access token</h4>
+                <p>When activated for the first time the extension asks the user to allow the extension to create, edit,
+                    organize, and delete all user's tasks in the Google Tasks application.
+                <p>When the user grants the access to their Google Task account in the Sign in with Google popup, the
+                    extension receives an access token - a string allowing the extension to create, edit, organise, and
+                    delete user's tasks by adding the access token to web requests to the Google Tasks API.</p>
+                <p>The extension does not store or and send the access token anywhere except the Google Tasks API. The
+                    access token is handled by the Chrome Identity API. For each request to the Google Tasks API, the
+                    extension receives an access token by making a call to the Chrome Identity API.</p>
+                <p>The extension does not ask the user for any personal details. The access token cannot be used to
+                    retrieve a user’s name or email. The access token cannot be used for anything else except to create,
+                    edit, organise, and delete user's Google tasks.</p>
+                <h4>Tasklists</h4>
+                <p>Each time the extension is activated by the user by clicking on the extension’s icon, the access
+                    token is used to load the metadata of the tasklists existing in the user’s account in the Google
+                    Tasks. The extension converts the received metadata into a SELECT element in which the user can
+                    select the taskslist where new tasks are to be created. Of the received metadata the extension uses
+                    tasklist names and ids. The rest of the received properties are automatically erased from the
+                    computer memory by the browser.</p>
+                <p>Each time the user selects a tasklist from the options in the SELECT element, the selected tasklist
+                    id, not name, is saved into the user's browser localstorage API so that the previously selected
+                    tasklist can be automatically selected when the user reuses the extension on another web page.</p>
+                <h4>Address of the last created task</h4>
+                <p>New tasks are created in the tasklist selected by the user or the default first tasklist in the
+                    SELECT element. Only the title and details values selected by the user are sent to the Google Tasks
+                    API. The response from the Google API to the web request contains the metadata of the created task
+                    including the URL address of the created task. The URL is displayed to the user so that the user can
+                    navigate to the created tasks. The rest of the values received in the response are not used and are
+                    automatically erased from the computer memory by the browser.</p>
+                <p>When the user creates another task, the new URL replaces the URL of the previously created task. The
+                    URL of the previously created task is automatically erased from the computer memory by the browser.
                 </p>
+                <p>When the user navigates to another web page, the URL of the last saved task is automatically erased
+                    from the computer memory by the browser.</p>
             </div>
 
         </div>
